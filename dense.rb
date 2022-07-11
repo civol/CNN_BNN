@@ -19,7 +19,7 @@ system :dense do |ldescr|
     # Generate the neurons.
     neurons = out_num.times.map do |i|
         bneuron(ldescr[:weights].flatten[i],ldescr[:biases].flatten[i],
-                ldescr[:lwidth]).(:"bneuronI_#{i}").(vecX,vecY[i])
+                ldescr[:lwidth]).(:"bneuronI_#{i}").(vecX,vecY[out_num-i-1])
     end
     
 end
@@ -35,7 +35,7 @@ Unit.system :denseTest do
               _0101010101010101010101010101010101010101010101010101010101010101,
               _1111111111111111111111111111111011111111111111111111111111111110
              ],
-             biases: [ _0000000, _0000010, _0010100, _0001010 ],
+             biases: [ _1100000, _1100010, _0010100, _0001010 ],
              lwidth: 4 }
 
     # The test vectors.

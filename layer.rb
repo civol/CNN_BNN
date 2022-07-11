@@ -9,7 +9,7 @@
 system :layer do |typX, typY|
     input :clk, :req
     typX.input :vecX
-    output :ack
+    output ack: 0
     typY.output :vecY
 
     # The synchronization part.
